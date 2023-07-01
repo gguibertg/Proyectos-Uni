@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Wand
+comment0.text=\r\n\ Each\ character\ uses\ a\ Magic\ Wand\ during\ the\ duels\ to\ generate\ her\ attack\ points\ as\ well\ as\ her\ resistance\ points.\ The\ difference\r\n\ between\ each\ wand\ depends\ on\ the\ kind\ of\ wood\ used\ that\ produces\ a\ different\ result\ if\ they\ are\ used\ in\ an\ offensively\ way\ or\ in\ a\ defensively\ way.\r\n\ @author\ (Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia)\ \r\n\ @version\ (05/12/19)\r\n
+comment1.params=
+comment1.target=java.lang.String\ getName()
+comment1.text=\r\n\ \ Returns\ the\ name\ of\ the\ Wand\r\n\ \ @param\ \r\n\ \ @return\ String\ The\ name\ of\ the\ Wand\ \r\n
+comment2.params=
+comment2.target=java.lang.String\ getType()
+comment2.text=\r\n\ \ Returns\ the\ type\ of\ the\ Wand\r\n\ \ @param\ \r\n\ \ @return\ String\ The\ type\ of\ the\ Wand\r\n
+comment3.params=energyPoints\ offensivePoints
+comment3.target=double\ attackPower(double,\ double)
+comment3.text=\r\n\ \ \r\n\ \ @param\ energyPoints\ A\ doulble\ from\ the\ energyPoints,\ offensivePoints\ A\ doulble\ from\ the\ offensivePoints\r\n\ \ @return\ double\r\n
+comment4.params=energyPoints\ defensivePoints
+comment4.target=double\ resistancePower(double,\ double)
+comment4.text=\r\n\ \ \r\n\ \ @param\ energyPoints\ A\ doulble\ from\ the\ energyPoints,\ defensivePoints\ A\ doulble\ from\ the\ defensivePoints\r\n\ \ @return\ double\r\n
+numComments=5

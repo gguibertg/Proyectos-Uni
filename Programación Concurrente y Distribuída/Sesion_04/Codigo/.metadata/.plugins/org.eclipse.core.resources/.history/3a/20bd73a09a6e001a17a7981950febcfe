@@ -1,0 +1,60 @@
+
+public class Grua extends Thread {
+
+	private int tipo; // 1 = Azucar 2 = sal 3 = harina
+	private String producto;
+	private Plataforma plataforma;
+	private boolean bucleInfinito = true;
+
+	public Grua(int tipo, Plataforma plataforma) {
+
+		this.tipo = tipo;
+		this.plataforma = plataforma;
+
+		if (this.tipo == 1) {
+			this.producto = "Azucar";
+		} else {
+			if (this.tipo == 2) {
+				this.producto = "Sal";
+			} else {
+				if (this.tipo == 3) {
+					this.producto = "Harina";
+				}
+			}
+		}
+
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getProducto() {
+		return producto;
+	}
+
+	public void setProducto(String producto) {
+		this.producto = producto;
+	}
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public void run() {
+
+		while (bucleInfinito) {
+			plataforma.coger(getTipo(), getProducto());
+		}
+
+	}
+
+}

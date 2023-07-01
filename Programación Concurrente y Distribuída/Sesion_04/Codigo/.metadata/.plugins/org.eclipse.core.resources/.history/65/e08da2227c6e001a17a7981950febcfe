@@ -1,0 +1,35 @@
+
+public class Barco extends Thread {
+
+	private int direccion;
+	private int id;		// 0 = entra  1= sale
+	private Puerta p;
+	private TorreDeControl tC;
+	private int tipoBarco;		// 0 = normal  1 = mercante
+	
+
+	public Barco(int direccion, int id, Puerta p, TorreDeControl tC) {
+
+		this.direccion = direccion;
+		this.id = id;
+		this.p = p;
+		this.tC = tC;
+
+	}
+
+	public void run() {
+
+		if (direccion == 0) {
+			tC.permisoEntrada(this);
+			p.entrar(this);
+			tC.finEntrada(this);
+			}
+		
+		if(direccion == 1) {
+			tC.permisoSalida(this);
+			p.salir(this);
+			tC.finSalida(this);
+		}
+	}
+
+}

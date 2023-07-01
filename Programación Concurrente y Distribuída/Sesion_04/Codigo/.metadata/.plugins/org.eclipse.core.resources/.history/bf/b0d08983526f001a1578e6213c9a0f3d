@@ -1,0 +1,17 @@
+
+import java.util.LinkedList;
+
+public class Mercante extends Barco {
+
+	private Plataforma plataforma;
+	private LinkedList<Contenedor> cList; 
+	
+	public Mercante(int direccion, int id, Puerta p, TorreDeControl tC, Plataforma plataforma, LinkedList<Contenedor> cList) {
+		
+		super(direccion, id, p, tC);
+		this.plataforma = plataforma;
+		this.cList = cList;
+		
+	}
+	
+}

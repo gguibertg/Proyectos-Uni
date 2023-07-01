@@ -1,0 +1,130 @@
+
+public class Barco extends Thread {
+
+	private int direccion; // 0 = entrar 1 = salir
+	private int id;
+	private Puerta p;
+	private TorreDeControl tC;
+
+	private int tipoBarco; // 0 = normal 1 = mercante
+	private Plataforma plataforma;
+	private int[] carga = { 0, 12, 5, 20 };
+
+	public Barco(int direccion, int id, Puerta p, TorreDeControl tC) {
+
+		this.direccion = direccion;
+		this.id = id;
+		this.p = p;
+		this.tC = tC;
+		this.tipoBarco = 0;
+
+	}
+
+	public Barco(int direccion, int id, Puerta p, TorreDeControl tC, Plataforma plataforma) {
+
+		this.direccion = direccion;
+		this.id = id;
+		this.p = p;
+		this.tC = tC;
+		this.tipoBarco = 1;
+		this.plataforma = plataforma;
+
+	}
+
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Puerta getP() {
+		return p;
+	}
+
+	public void setP(Puerta p) {
+		this.p = p;
+	}
+
+	public TorreDeControl gettC() {
+		return tC;
+	}
+
+	public void settC(TorreDeControl tC) {
+		this.tC = tC;
+	}
+
+	public int getTipoBarco() {
+		return tipoBarco;
+	}
+
+	public void setTipoBarco(int tipoBarco) {
+		this.tipoBarco = tipoBarco;
+	}
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public int[] getCarga() {
+		return carga;
+	}
+
+	public void setCarga(int[] carga) {
+		this.carga = carga;
+	}
+
+	public void run() {
+		
+		if(tipoBarco == 0) {
+			
+			if (direccion == 0) {
+				tC.permisoEntrada(this);
+				p.entrar(this);
+				tC.finEntrada(this);
+			}
+
+			if (direccion == 1) {
+				tC.permisoSalida(this);
+				p.salir(this);
+				tC.finSalida(this);
+			}
+		}else {
+			if(tipoBarco == 1) {
+				
+				tC.permisoEntrada(this);
+				p.entrar(this);
+				tC.finEntrada(this);
+				
+				for(int i = 1; i < 4; i++) {
+					int n = getCarga()[i];
+					System.out.println("HOLA MUNDO DE MIERDA " + n);
+					for(int j = 0; j < n; j++) {
+						plataforma.dejar(i);
+					}
+				}
+				
+				tC.permisoSalida(this);
+				p.salir(this);
+				tC.finSalida(this);
+				
+			}
+		}
+
+		
+	}
+
+}

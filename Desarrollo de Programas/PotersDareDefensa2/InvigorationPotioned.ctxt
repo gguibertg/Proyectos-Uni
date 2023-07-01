@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=InvigorationPotioned
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ InvigorationPotion\ here.\r\n\ \r\n\ @author\ (Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia)\ \r\n\ @version\ (05/12/19)\r\n
+comment1.params=character
+comment1.target=InvigorationPotioned(Character)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ InvigorationPotion\r\n
+comment2.params=
+comment2.target=double\ getDefensive()
+comment2.text=\r\n\ \ Returns\ the\ defensivePoints\ after\ use\ the\ potion\r\n\ \ @param\ \r\n\ \ @return\ double\ The\ defensivePoints\ after\ use\ the\ potion\r\n
+numComments=3

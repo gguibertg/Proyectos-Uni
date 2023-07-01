@@ -1,0 +1,163 @@
+
+import java.util.concurrent.locks.*;
+
+public class Plataforma {
+
+	private boolean vacia = true;
+	private Contenedor contenedor; // 1 = Azúcar 2 = Harina 3 = Sal
+	private Lock monitor;
+	private Condition gBarco;
+	private Condition gAzucar;
+	private Condition gSal;
+	private Condition gHarina;
+
+	public Plataforma() {
+
+		monitor = new ReentrantLock();
+		gBarco = monitor.newCondition();
+		gAzucar = monitor.newCondition();
+		gSal = monitor.newCondition();
+		gHarina = monitor.newCondition();
+
+	}
+
+	public boolean isVacia() {
+		return vacia;
+	}
+
+	public void setVacia(boolean vacia) {
+		this.vacia = vacia;
+	}
+
+	public Contenedor getContenedor() {
+		return contenedor;
+	}
+
+	public void setContenedor(Contenedor contenedor) {
+		this.contenedor = contenedor;
+	}
+
+	public Lock getMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(Lock monitor) {
+		this.monitor = monitor;
+	}
+
+	public Condition getgBarco() {
+		return gBarco;
+	}
+
+	public void setgBarco(Condition gBarco) {
+		this.gBarco = gBarco;
+	}
+
+	public Condition getgAzucar() {
+		return gAzucar;
+	}
+
+	public void setgAzucar(Condition gAzucar) {
+		this.gAzucar = gAzucar;
+	}
+
+	public Condition getgSal() {
+		return gSal;
+	}
+
+	public void setgSal(Condition gSal) {
+		this.gSal = gSal;
+	}
+
+	public Condition getgHarina() {
+		return gHarina;
+	}
+
+	public void setgHarina(Condition gHarina) {
+		this.gHarina = gHarina;
+	}
+
+	public void dejar(Contenedor container) {
+
+		monitor.lock();
+
+		try {
+			System.out.println("El barco intenta dejar un contenedor");
+			while (isVacia() == false) {
+				try {
+					System.out.println("La plataforma estaba llena, el barco se bloquea");
+					gBarco.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			setContenedor(container);
+			System.out.println("Contenedor de " + getContenedor().getNombre() + " colocado correctamente");
+			setVacia(false);
+
+			if (getContenedor().getContenido() == 1) {
+				System.out.println("Desbloqueando Grua de Azucar");
+				gAzucar.signal();
+			} else {
+				if (getContenedor().getContenido() == 2) {
+					System.out.println("Desbloqueando Grua de Harina");
+					gHarina.signal();
+				} else {
+					if (getContenedor().getContenido() == 3) {
+						System.out.println("Desbloqueando Grua de Sal");
+						gSal.signal();
+					}
+				}
+			}
+
+		} finally {
+			monitor.unlock();
+		}
+
+	}
+
+	public void coger(int idGrua, String tipoGrua) {
+
+		monitor.lock();
+
+		System.out.println("La Grua de " + tipoGrua + " quiere coger un Contenedor");
+
+		try {
+
+			while (isVacia() == true || getContenedor().getContenido() != idGrua) {
+				if (idGrua == 1) {
+					try {
+						System.out.println("Bloqueando Grua de " + tipoGrua);
+						gAzucar.await();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				} else {
+					if (idGrua == 2) {
+						try {
+							System.out.println("Bloqueando Grua de " + tipoGrua);
+							gHarina.await();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					} else {
+						if (idGrua == 3) {
+							try {
+								System.out.println("Bloqueando Grua de " + tipoGrua);
+								gSal.await();
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				}
+			}
+			System.out.println("La Grua de " + tipoGrua + " coge el contenedor de " + getContenedor().getNombre());
+			setVacia(true);
+
+		} finally {
+			monitor.unlock();
+		}
+
+	}
+}

@@ -1,0 +1,22 @@
+
+public class LlenadoPetroleo implements Runnable{
+	
+	private Petrolero p;
+	
+	public LlenadoPetroleo(Petrolero p) {
+		
+		this.p = p;
+		
+	}
+	
+	
+	public void run() {
+		
+		ZonaCarga zC = p.getZonaCarga();
+		
+		while(p.getPetroleo() < 3000){
+			zC.repostarPetroleo(p);
+		}
+	}
+
+}

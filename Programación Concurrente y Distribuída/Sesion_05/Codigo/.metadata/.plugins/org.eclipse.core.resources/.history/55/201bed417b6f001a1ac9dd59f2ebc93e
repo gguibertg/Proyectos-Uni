@@ -1,0 +1,12 @@
+
+public class Reponedor extends Thread{
+
+	ZonaCarga zonaCarga;
+	
+	public Reponedor(ZonaCarga zC) {
+		
+		this.zonaCarga = zC;
+		
+	}
+	
+}

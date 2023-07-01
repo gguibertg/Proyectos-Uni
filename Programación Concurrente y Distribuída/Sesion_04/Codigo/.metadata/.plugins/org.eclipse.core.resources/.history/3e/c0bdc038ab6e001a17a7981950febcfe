@@ -1,0 +1,13 @@
+
+public class Plataforma {
+	
+	private int container; // 1 = Azucar 2 = Harina 3 = Sal
+	boolean vacia;
+	
+	public void Plataforma() {
+		
+		this.vacia = true; 
+		
+	}
+
+}

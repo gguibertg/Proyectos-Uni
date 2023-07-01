@@ -1,0 +1,54 @@
+
+import java.util.LinkedList;
+
+public class Main {
+
+	public Main() {
+
+	}
+
+	public static void main(String[] args) {
+
+		int i;
+		int numBarcos = 20;
+		Puerta p = new Puerta();
+		TorreDeControl tC = new TorreDeControl();
+
+//		LinkedList<Barco> bList = new LinkedList<Barco>();
+//		for (i = 0; i < numBarcos; i++) {
+//			if (i % 2 == 0) {
+//				Barco b = new Barco(0, i, p, tC);
+//				bList.add(b);
+//				b.start();
+//			} else {
+//				Barco b = new Barco(1, i, p, tC);
+//				bList.add(b);
+//				b.start();
+//			}
+//
+//		}
+//
+//		try {
+//			for (i = 0; i < numBarcos; i++) {
+//				bList.get(i).join();
+//			}
+//		} catch (Exception e) {
+//			;
+//		}
+
+		Plataforma plataforma = new Plataforma();
+
+		Barco mercante = new Barco(0, 42, p, tC, plataforma);
+
+		Grua gAzucar = new Grua(1, plataforma, 12);
+		Grua gHarina = new Grua(2, plataforma, 20);
+		Grua gSal = new Grua(3, plataforma, 5);
+
+		mercante.start();
+		gAzucar.start();
+		gHarina.start();
+		gSal.start();
+
+	}
+
+}

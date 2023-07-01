@@ -1,0 +1,26 @@
+
+public class BarcoMercante extends Barco {
+	
+	private int[] contenedores = {12, 20, 5};    // Pos 0 = Azucar   1 = sal   2 = harina  
+	
+	public BarcoMercante(int direccion, int id, Puerta p, TorreDeControl torreDeControl) {
+		
+		super(direccion, id, p, torreDeControl);
+		
+	}
+
+	public int[] getContenedores() {
+		return contenedores;
+	}
+
+	public void setContenedores(int[] contenedores) {
+		this.contenedores = contenedores;
+	}
+	
+	public void run() {
+		
+		
+		
+	}
+
+}

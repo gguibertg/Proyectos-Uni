@@ -1,0 +1,18 @@
+
+public class Petrolero extends Barco{
+
+	int agua;
+	int petroleo;
+	ZonaCarga zonaCarga;
+	
+	public Petrolero(int direccion, int id, Puerta p, TorreDeControl tC, ZonaCarga zC) {
+		
+		super(direccion, id, p, tC);
+		
+		agua = 0;
+		petroleo = 0;
+		this.zonaCarga = zC;
+		
+	}
+	
+}

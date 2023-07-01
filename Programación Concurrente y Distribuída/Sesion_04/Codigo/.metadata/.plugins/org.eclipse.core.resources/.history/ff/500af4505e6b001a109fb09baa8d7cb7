@@ -1,0 +1,18 @@
+
+public class Grua extends Thread {
+	
+	Plataforma platform;
+	
+	public Grua(Plataforma platform) {
+		
+		this.platform = platform;
+		
+	}
+	
+	public void run() {
+		
+		
+		
+	}
+
+}

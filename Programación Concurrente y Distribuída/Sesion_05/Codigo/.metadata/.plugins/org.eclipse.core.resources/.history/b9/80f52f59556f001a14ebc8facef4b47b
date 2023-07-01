@@ -1,0 +1,12 @@
+
+public class Petrolero extends Barco{
+
+	public Petrolero(int direccion, int id, Puerta p, TorreDeControl tC, Plataforma plataforma){
+		
+		super(direccion, id, p, tC);
+		
+	}
+	
+	
+	
+}

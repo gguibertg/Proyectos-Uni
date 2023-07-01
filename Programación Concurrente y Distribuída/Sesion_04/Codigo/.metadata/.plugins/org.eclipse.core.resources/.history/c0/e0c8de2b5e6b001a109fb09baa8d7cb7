@@ -1,0 +1,8 @@
+
+public class Grua extends Thread {
+	
+	public Grua() {
+		
+	}
+
+}

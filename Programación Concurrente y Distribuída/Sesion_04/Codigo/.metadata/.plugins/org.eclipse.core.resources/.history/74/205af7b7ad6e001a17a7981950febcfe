@@ -1,0 +1,50 @@
+
+import java.util.concurrent.locks.*;
+
+public class Plataforma {
+
+	private int container; // 1 = Azucar 2 = Harina 3 = Sal
+	boolean vacia;
+
+	Lock monitor = new ReentrantLock();
+
+	Condition gBarco = monitor.newCondition();
+	Condition gAzucar = monitor.newCondition();
+	Condition gHarina = monitor.newCondition();
+	Condition gSal = monitor.newCondition();
+
+	public Plataforma() {
+
+		this.vacia = true;
+
+	}
+
+	public int getContainer() {
+		return container;
+	}
+
+	public void setContainer(int container) {
+		this.container = container;
+	}
+
+	public boolean isVacia() {
+		return vacia;
+	}
+
+	public void setVacia(boolean vacia) {
+		this.vacia = vacia;
+	}
+
+	public void dejar(int contenedor) {
+
+		monitor.lock();
+
+		try {
+
+		} finally {
+			monitor.unlock();
+		}
+
+	}
+
+}

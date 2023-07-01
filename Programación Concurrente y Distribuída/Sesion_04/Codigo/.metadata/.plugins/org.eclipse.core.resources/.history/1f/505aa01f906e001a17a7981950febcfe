@@ -1,0 +1,50 @@
+
+public class BarcoMercante extends Barco {
+
+	private int[] contenedores = { 12, 20, 5, }; // Pos 0 = Azucar 1 = sal 2 = harina
+	private Plataforma plataforma;
+
+	public BarcoMercante(int direccion, int id, Puerta p, TorreDeControl torreDeControl, Plataforma plataforma) {
+
+		super(direccion, id, p, torreDeControl);
+		this.plataforma = plataforma;
+
+	}
+
+	public int[] getContenedores() {
+		return contenedores;
+	}
+
+	public void setContenedores(int[] contenedores) {
+		this.contenedores = contenedores;
+	}
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public void run() {
+
+		this.getTorreDeControl().permisoEntrada(this);
+		this.getPuerta().entrar(this);
+		this.getTorreDeControl().finEntrada(this);
+
+		for (int i = 0; i < 3; i++) {
+			int n = contenedores[i];
+			System.out.println("DEJO " + n + "CONTENEDORES");
+			for (int j = 0; j < n; j++) {
+				plataforma.dejar(i);
+			}
+		}
+
+		this.getTorreDeControl().permisoSalida(this);
+		this.getPuerta().salir(this);
+		this.getTorreDeControl().finSalida(this);
+
+	}
+
+}

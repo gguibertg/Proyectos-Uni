@@ -1,0 +1,25 @@
+
+public class BarcoMercante extends Barco {
+	
+	int azucar;
+	int sal;
+	int harina;
+	Grua g;
+
+	public BarcoMercante(int direccion, int id, Puerta p, TorreDeControl tC, Grua g) {
+		
+		super(direccion, id, p, tC);
+		azucar = 12;
+		sal = 20;
+		harina = 5;
+		this.g = g;
+		
+	}
+	
+	public void run() {
+		
+		p.entrar(this);
+		
+	}
+	
+}

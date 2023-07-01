@@ -1,0 +1,25 @@
+
+import java.util.concurrent.locks.*;
+
+public class Plataforma {
+	
+	Lock g;
+	Condition gAzucar;
+	Condition gSal;
+	Condition gHarina;
+	Condition gBarco;
+	
+	
+	public Plataforma() {
+		
+	}
+	
+	public void dejar() {
+		
+	}
+	
+	public void coger() {
+		
+	}
+
+}

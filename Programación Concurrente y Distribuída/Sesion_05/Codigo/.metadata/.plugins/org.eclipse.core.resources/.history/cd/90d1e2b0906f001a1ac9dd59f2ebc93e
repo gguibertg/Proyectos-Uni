@@ -1,0 +1,139 @@
+
+import java.util.concurrent.Semaphore;
+
+public class ZonaCarga {
+
+	private int barcosDentro;
+
+	private int[] contenedoresPetroleo = { 0, 0, 0, 0, 0, };
+
+	// private Semaphore[] semPetroleo;
+	private Semaphore[] semReponedor;
+	private Semaphore[] semBarcos;
+	private Semaphore mutex;
+
+	public ZonaCarga() {
+
+		barcosDentro = 0;
+
+		for (int i = 0; i < 5; i++) {
+			contenedoresPetroleo[i] = 1000;
+		}
+
+		// semPetroleo = new Semaphore[] { new Semaphore(0), new Semaphore(0), new
+		// Semaphore(0), new Semaphore(0),
+		// new Semaphore(0) };
+
+		semReponedor = new Semaphore[] { new Semaphore(0), new Semaphore(0), new Semaphore(0), new Semaphore(0),
+				new Semaphore(0) };
+
+		semBarcos = new Semaphore[] { new Semaphore(0), new Semaphore(0), new Semaphore(0), new Semaphore(0),
+				new Semaphore(0) };
+
+		mutex = new Semaphore(1);
+
+	}
+
+	public int getBarcosDentro() {
+		return barcosDentro;
+	}
+
+	public void setBarcosDentro(int barcosDentro) {
+		this.barcosDentro = barcosDentro;
+	}
+
+	public int[] getContenedoresPetroleo() {
+		return contenedoresPetroleo;
+	}
+
+	public void setContenedoresPetroleo(int[] contenedoresPetroleo) {
+		this.contenedoresPetroleo = contenedoresPetroleo;
+	}
+
+	public void llegar(Petrolero p) {
+
+		barcosDentro++;
+
+		System.out.println("Hola, he llegado " + p.getIdentificador());
+
+		if (barcosDentro < 5) {
+			for (int i = 0; i < 5; i++) {
+				try {
+					System.out.println("Hola, me bloqueo " + p.getIdentificador());
+					semBarcos[i].acquire();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		if (barcosDentro == 5) {
+			System.out.println("Bye, me libero " + p.getIdentificador());
+			semBarcos[p.getIdentificador()].release();
+
+		}
+
+	}
+
+	public void repostarPetroleo(Petrolero p) {
+
+		p.setPetroleo(p.getPetroleo() + 1000);
+
+		contenedoresPetroleo[p.getIdentificador()] = 0;
+
+		semReponedor[p.getIdentificador()].release();
+
+		try {
+			semBarcos[p.getIdentificador()].acquire();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando petroleo, tiene " + p.getPetroleo() + " litros");
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando petroleo, tiene " + p.getPetroleo() + " litros");
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando petroleo, tiene " + p.getPetroleo() + " litros");
+
+	}
+
+	public void reponer() {
+		
+		System.out.println("SOY EL REPONEDOR");
+		
+		for (int i = 0; i < 5; i++) {
+			try {
+				System.out.println("REPONEDOR " + i + " DORMIDO");
+				semReponedor[i].acquire();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			;
+		}
+		
+		System.out.println("REPONEDOR DESPERTADO");
+		
+		for(int i = 0; i < 5; i++) {
+			contenedoresPetroleo[i] = 1000;
+			System.out.println("Reponiento contenedor numero " + i);
+			semBarcos[i].release();
+		}
+
+	}
+
+	public void repostarAgua(Petrolero p) {
+
+		try {
+			mutex.acquire();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando agua, tiene" + p.getAgua() + " litros");
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando agua, tiene" + p.getAgua() + " litros");
+		System.out.println("Petrolero " + p.getIdentificador() + " repostando agua, tiene" + p.getAgua() + " litros");
+
+		p.setAgua(p.getAgua() + 1000);
+
+		mutex.release();
+
+	}
+
+}

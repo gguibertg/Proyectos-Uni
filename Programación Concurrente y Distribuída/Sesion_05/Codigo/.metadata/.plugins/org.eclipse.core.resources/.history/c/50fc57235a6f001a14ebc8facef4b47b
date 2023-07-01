@@ -1,0 +1,59 @@
+
+public class Petrolero extends Barco{
+	
+	private ZonaCarga zonaCarga;
+	private int petroleo;
+	private int agua;
+	
+
+	public Petrolero(int direccion, int id, Puerta p, TorreDeControl tC, Plataforma plataforma, ZonaCarga zC){
+		
+		super(direccion, id, p, tC);
+		
+		this.zonaCarga = zC;
+		petroleo = 0;
+		agua = 0;
+		
+	}
+
+
+	public ZonaCarga getZonaCarga() {
+		return zonaCarga;
+	}
+
+
+	public void setZonaCarga(ZonaCarga zonaCarga) {
+		this.zonaCarga = zonaCarga;
+	}
+
+
+	public int getPetroleo() {
+		return petroleo;
+	}
+
+
+	public void setPetroleo(int petroleo) {
+		this.petroleo = petroleo;
+	}
+
+
+	public int getAgua() {
+		return agua;
+	}
+
+
+	public void setAgua(int agua) {
+		this.agua = agua;
+	}
+	
+	public void rellenarAgua() {
+		this.agua = agua + 1000;
+	}
+	
+	public void run() {
+		
+		
+		
+	}
+	
+}

@@ -1,0 +1,4 @@
+
+public class Grua extends Thread {
+
+}

@@ -1,0 +1,127 @@
+
+import java.util.concurrent.locks.*;
+
+public class Plataforma {
+
+	private int container; // 1 = Azucar 2 = Harina 3 = Sal
+	boolean vacia;
+
+	Lock monitor = new ReentrantLock();
+
+	Condition gBarco = monitor.newCondition();
+	Condition gAzucar = monitor.newCondition();
+	Condition gHarina = monitor.newCondition();
+	Condition gSal = monitor.newCondition();
+
+	public Plataforma() {
+
+		this.vacia = true;
+
+	}
+
+	public int getContainer() {
+		return container;
+	}
+
+	public void setContainer(int container) {
+		this.container = container;
+	}
+
+	public boolean isVacia() {
+		return vacia;
+	}
+
+	public void setVacia(boolean vacia) {
+		this.vacia = vacia;
+	}
+
+	public void dejar(int contenedor) {
+
+		monitor.lock();
+
+		try {
+
+			System.out.println("La grua del barco intenta dejar un contenedor");
+
+			while (isVacia() == false) {
+				try {
+					System.out.println("La plataforma estaba llena, la grua del barco se bloquea");
+					gBarco.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+			setContainer(contenedor);
+			setVacia(false);
+
+			System.out.println("Contenedor colocado");
+
+			if (contenedor == 1) {
+				System.out.println("Contenedor de azucar, desbloqueando grua");
+				gAzucar.signal();
+			} else {
+				if (contenedor == 2) {
+					System.out.println("Contenedor de harina, desbloqueando grua");
+					gHarina.signal();
+				} else {
+					if (contenedor == 3) {
+						System.out.println("Contenedor de sal, desbloqueando grua");
+						gSal.signal();
+					}
+				}
+			}
+
+		} finally {
+			monitor.unlock();
+		}
+
+	}
+
+	public void coger(int idGrua, String tipoGrua) {
+
+		monitor.lock();
+
+		try {
+
+			System.out.println("La grua de " + tipoGrua + " quiere coger un contenedor");
+
+			while (isVacia() == true || container != idGrua) {
+
+				if (idGrua == 1) {
+					try {
+						System.out.println("Bloqueando grua de azucar");
+						gAzucar.await();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				} else {
+					if (idGrua == 2) {
+						try {
+							System.out.println("Bloqueando grua de harina");
+							gHarina.await();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					} else {
+						if (idGrua == 3) {
+							try {
+								System.out.println("Bloqueando grua de sal");
+								gSal.await();
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+
+					}
+				}
+
+			}
+
+		} finally {
+			monitor.unlock();
+		}
+
+	}
+
+}

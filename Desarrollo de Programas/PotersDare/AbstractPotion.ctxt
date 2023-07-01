@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=AbstractPotion
+comment0.text=\r\nAny\ character\ could\ drink\ different\ extra\ potions\ along\ the\ competition.\ \r\nThese\ potions\ increase\ the\ offensive\ points\ and/or\ the\ defensive\ points\ of\ the\ characters\ who\ drink\ them.\ \r\nA\ character\ could\ not\ use\ ever\ one\ of\ these\ potions,\ use\ one\ of\ them,\ use\ two\ of\ them\ or\ even\ use\ all\ of\ them\ during\ the\ same\ competition.\ \r\n\ \r\n\ @author\:\ Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia\ \r\n\ Date\:\ 05/12/19\ \r\n
+comment1.params=character
+comment1.target=AbstractPotion(Character)
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=double\ getOffensive()
+comment2.text=\r\n\ \ Decorate\ the\ character\ class\r\n\ \ @param\ \r\n\ \ @return\ double\ OffensivePoints\ changed\ by\ the\ potion\r\n
+comment3.params=
+comment3.target=double\ getDefensive()
+comment3.text=\r\n\ \ Decorate\ the\ character\ class\r\n\ \ @param\ \r\n\ \ @return\ double\ DeffensivePoints\ changed\ by\ the\ potion\r\n
+comment4.params=
+comment4.target=Character\ getDecorated()
+comment4.text=\r\n\ \ Returns\ the\ character\ decorated\r\n\ \ @param\ \r\n\ \ @return\ Character\ Returns\ the\ decoratedCharacter\r\n
+numComments=5

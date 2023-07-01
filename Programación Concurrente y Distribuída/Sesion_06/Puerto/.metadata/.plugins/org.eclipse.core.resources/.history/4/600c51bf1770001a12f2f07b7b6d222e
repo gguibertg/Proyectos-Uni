@@ -1,0 +1,22 @@
+
+public class LlenadoPetroleo implements Runnable {
+
+	private Petrolero p;
+
+	public LlenadoPetroleo(Petrolero p) {
+
+		this.p = p;
+
+	}
+	
+	@Override
+	public void run() {
+
+		ZonaCarga zC = p.getZonaCarga();
+
+		for (int i = 0; i < 3; i++) {
+			zC.repostarPetroleo(p);
+		}
+	}
+
+}

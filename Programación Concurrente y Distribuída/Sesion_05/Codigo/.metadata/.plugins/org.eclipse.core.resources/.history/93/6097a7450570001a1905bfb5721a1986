@@ -1,0 +1,68 @@
+
+import java.util.concurrent.Semaphore;
+
+public class ZonaCarga {
+
+	private int barcosDentro;
+
+	private int[] contenedoresPetroleo = { 0, 0, 0, 0, 0, };
+
+	private Semaphore[] semPetroleo;
+	private Semaphore[] semReponedor;
+	private Semaphore[] semBarcos;
+	private Semaphore mutex;
+
+	public ZonaCarga() {
+
+		barcosDentro = 0;
+
+		for (int i = 0; i < 5; i++) {
+			contenedoresPetroleo[i] = 1000;
+		}
+
+		semPetroleo = new Semaphore[] { new Semaphore(0), new Semaphore(0), new Semaphore(0), new Semaphore(0),
+				new Semaphore(0) };
+
+		semReponedor = new Semaphore[] { new Semaphore(0), new Semaphore(0), new Semaphore(0), new Semaphore(0),
+				new Semaphore(0) };
+
+		semBarcos = new Semaphore[] { new Semaphore(0), new Semaphore(0), new Semaphore(0), new Semaphore(0),
+				new Semaphore(0) };
+
+		mutex = new Semaphore(1);
+
+	}
+
+	public int getBarcosDentro() {
+		return barcosDentro;
+	}
+
+	public void setBarcosDentro(int barcosDentro) {
+		this.barcosDentro = barcosDentro;
+	}
+
+	public int[] getContenedoresPetroleo() {
+		return contenedoresPetroleo;
+	}
+
+	public void setContenedoresPetroleo(int[] contenedoresPetroleo) {
+		this.contenedoresPetroleo = contenedoresPetroleo;
+	}
+
+	public void llegar(int i) {
+
+	}
+
+	public void repostarPetroleo(int i) {
+
+	}
+
+	public void reponer() {
+
+	}
+
+	public void repostarAgua(Petrolero p) {
+
+	}
+	
+}

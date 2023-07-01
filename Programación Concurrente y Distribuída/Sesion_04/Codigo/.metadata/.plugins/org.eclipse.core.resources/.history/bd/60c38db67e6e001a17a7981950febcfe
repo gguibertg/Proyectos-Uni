@@ -1,0 +1,12 @@
+
+public class BarcoMercante extends Barco {
+	
+	
+	
+	public BarcoMercante(int direccion, int id, Puerta p, TorreDeControl torreDeControl) {
+		
+		super(direccion, id, p, torreDeControl);
+		
+	}
+
+}

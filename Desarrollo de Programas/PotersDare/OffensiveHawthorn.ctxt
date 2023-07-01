@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=OffensiveHawthorn
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ OffensiveHawthorn\ here.\r\n\ \r\n\ @author\ (Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia)\ \r\n\ @version\ (05/12/19)\r\n
+comment1.params=name
+comment1.target=OffensiveHawthorn(java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ OffensiveHawthorn\r\n
+comment2.params=energyPoints\ offensivePoints
+comment2.target=double\ attackPower(double,\ double)
+comment2.text=\r\n\ Returns\ attackPower\ of\ the\ Wand\ \r\n\ \ @param\ energyPoints\ The\ energy\ of\ the\ Wand,\ offensivePoints\ The\ points\ of\ the\ offensive\ Wand\r\n\ \ @return\ double\ The\ attackPower\ of\ the\ Wand\r\n
+comment3.params=energyPoints\ defensivePoints
+comment3.target=double\ resistancePower(double,\ double)
+comment3.text=\r\n\ Returns\ resistancePower\ of\ the\ Wand\ \r\n\ \ @param\ energyPoints\ The\ energy\ of\ the\ Wand,\ defensivePoints\ The\ points\ of\ the\ offensive\ Wand\r\n\ \ @return\ double\ The\ resistancePower\ of\ the\ Wand\r\n
+numComments=4

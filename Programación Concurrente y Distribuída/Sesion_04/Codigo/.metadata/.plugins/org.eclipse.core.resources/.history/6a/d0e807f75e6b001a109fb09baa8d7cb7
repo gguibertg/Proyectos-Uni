@@ -1,0 +1,21 @@
+
+import java.util.concurrent.locks.*;
+
+public class Plataforma {
+	
+	Lock g;
+	
+	
+	public Plataforma() {
+		
+	}
+	
+	public void dejar() {
+		
+	}
+	
+	public void coger() {
+		
+	}
+
+}

@@ -1,0 +1,34 @@
+
+import java.util.concurrent.locks.*;
+import java.util.concurrent.BlockingQueue;
+
+public class Plataforma {
+
+	private int container; // 0 = vacio 1 = Azucar 2 = Harina 3 = Sal
+
+	private BlockingQueue<Contenedor> colaAzucar;
+	private BlockingQueue<Contenedor> colaHarina;
+	private BlockingQueue<Contenedor> colaSal;
+
+	public Plataforma() {
+
+		container = 0;
+
+	}
+
+	public int getContainer() {
+		return container;
+	}
+
+	public void setContainer(int container) {
+		this.container = container;
+	}
+
+	public void dejar(int contenedor) {
+
+	}
+
+	public void coger(int idGrua, String tipoGrua) {
+
+	}
+}

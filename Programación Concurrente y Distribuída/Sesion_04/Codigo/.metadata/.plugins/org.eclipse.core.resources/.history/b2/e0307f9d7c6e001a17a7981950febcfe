@@ -1,0 +1,63 @@
+
+public class Barco extends Thread {
+
+	private int direccion;
+	private int id; // 0 = entra 1= sale
+	private Puerta puerta;
+	private TorreDeControl torreDeControl;
+
+	public Barco(int direccion, int id, Puerta p, TorreDeControl tC) {
+
+		this.direccion = direccion;
+		this.id = id;
+		this.puerta = p;
+		this.torreDeControl = tC;
+
+	public void run() {
+
+		if (direccion == 0) {
+			torreDeControl.permisoEntrada(this);
+			puerta.entrar(this);
+			torreDeControl.finEntrada(this);
+		}
+
+		if (direccion == 1) {
+			torreDeControl.permisoSalida(this);
+			puerta.salir(this);
+			torreDeControl.finSalida(this);
+		}
+	}
+
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Puerta getPuerta() {
+		return puerta;
+	}
+
+	public void setPuerta(Puerta puerta) {
+		this.puerta = puerta;
+	}
+
+	public TorreDeControl getTorreDeControl() {
+		return torreDeControl;
+	}
+
+	public void setTorreDeControl(TorreDeControl torreDeControl) {
+		this.torreDeControl = torreDeControl;
+	}
+
+}

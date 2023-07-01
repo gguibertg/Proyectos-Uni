@@ -1,0 +1,69 @@
+
+public class Grua extends Thread {
+
+	private int tipo; // 1 = Azucar 2 = Harina 3 = Sal
+	private String nombre;
+	private Plataforma plataforma;
+	private int numeroContenedores;
+
+	public Grua(int t, Plataforma p, int nC) {
+
+		this.tipo = t;
+		this.plataforma = p;
+		this.numeroContenedores = nC;
+
+		if (getTipo() == 1) {
+			this.nombre = "Azucar";
+		} else {
+			if (getTipo() == 2) {
+				this.nombre = "Harina";
+			} else {
+				if (getTipo() == 3) {
+					this.nombre = "Sal";
+				}
+			}
+		}
+
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public int getNumeroContenedores() {
+		return numeroContenedores;
+	}
+
+	public void setNumeroContenedores(int numeroContenedores) {
+		this.numeroContenedores = numeroContenedores;
+	}
+
+	public void run() {
+		
+		for(int i = 0; i < numeroContenedores; i++) {
+			plataforma.coger(tipo, nombre);
+		}
+
+	}
+
+}

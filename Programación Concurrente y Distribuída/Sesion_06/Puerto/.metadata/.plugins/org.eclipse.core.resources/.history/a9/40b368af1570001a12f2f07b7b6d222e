@@ -1,0 +1,23 @@
+
+public class LlenadoAgua implements Runnable {
+	
+	private Petrolero p;
+	
+	public LlenadoAgua(Petrolero p) {
+		
+		this.p = p;
+		
+	}
+	
+	@Override
+	public void run() {
+		
+		ZonaCarga zC = p.getZonaCarga();
+		
+		while(p.getAgua() < 5000) {
+			zC.repostarAgua(p);
+		}
+		
+	}
+
+}

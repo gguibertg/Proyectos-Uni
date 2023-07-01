@@ -1,0 +1,16 @@
+
+public class Plataforma {
+	
+	public Plataforma() {
+		
+	}
+	
+	public void dejar() {
+		
+	}
+	
+	public void coger() {
+		
+	}
+
+}

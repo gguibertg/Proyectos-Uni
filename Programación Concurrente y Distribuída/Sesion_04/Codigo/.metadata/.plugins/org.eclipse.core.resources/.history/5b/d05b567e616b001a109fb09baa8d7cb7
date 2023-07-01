@@ -1,0 +1,20 @@
+
+public class Grua extends Thread {
+	
+	int contenedor;
+	Plataforma platform;
+	
+	public Grua(Plataforma platform, int contenedor) {
+		
+		this.contenedor = contenedor;
+		this.platform = platform;
+		
+	}
+	
+	public void run() {
+		
+		
+		
+	}
+
+}

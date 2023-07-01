@@ -1,0 +1,8 @@
+
+public class Petrolero extends Barco{
+
+	int agua;
+	int petroleo;
+	ZonaCarga zonaCarga;
+	
+}

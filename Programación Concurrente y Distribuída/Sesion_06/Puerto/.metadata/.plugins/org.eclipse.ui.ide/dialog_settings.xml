@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="D:\Users\gabri\UniActualizado\Segundo\19-20\Cuatri 2\PCD\Practicas\Sesion_06\Codigo\Executor_FactorialExampleWithCallable"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\gabri\Downloads\Paso7y8.zip"/>
+			<item value="C:\Users\gabri\Downloads\PuertoMaritimo.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_BankExample_v0.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_BankExample_v1.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_BankExample_v2.zip"/>
+			<item value="C:\Users\gabri\Downloads\ForkJoin_BankExample_v4.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_FactorialExampleWithCallable.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_invokeAll.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_periodicTask.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_ScheduledThreadPoolExecutor.zip"/>
+			<item value="C:\Users\gabri\Downloads\Executor_SimpleExample.zip"/>
+			<item value="C:\Users\gabri\Downloads\JCF_SynchronousQueue.zip"/>
+			<item value="C:\Users\gabri\Downloads\JCF_PriorityBlockingQueue.zip"/>
+			<item value="C:\Users\gabri\Downloads\JCF_LinkedBlockingQueue.zip"/>
+			<item value="C:\Users\gabri\Downloads\JCF_ConcurrentLinkedQueue.zip"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

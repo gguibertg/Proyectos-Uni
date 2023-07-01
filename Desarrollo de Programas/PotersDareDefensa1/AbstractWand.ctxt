@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=AbstractWand
+comment0.text=\r\n\ Abstract\ class\ Wand\ -\ it\ has\ the\ methots\ that\ are\ common\ for\ all\ the\ subclasses\r\n\ \r\n\ @author\:\ Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia\ \r\n\ Date\:\ 05/12/19\ \ \r\n
+comment1.params=name\ type
+comment1.target=AbstractWand(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Wand\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ \ Returns\ the\ name\ of\ the\ Wand\r\n\ \ @param\ \r\n\ \ @return\ String\ The\ name\ of\ the\ Wand\ \r\n
+comment3.params=
+comment3.target=java.lang.String\ getType()
+comment3.text=\r\n\ \ Returns\ the\ type\ of\ the\ Wand\r\n\ \ @param\ \r\n\ \ @return\ String\ The\ type\ of\ the\ Wand\r\n
+comment4.params=energyPoints\ offensivePoints
+comment4.target=double\ attackPower(double,\ double)
+comment4.text=\r\n\ \ \r\n\ \ @param\ energyPoints\ A\ doulble\ from\ the\ energyPoints,\ offensivePoints\ A\ doulble\ from\ the\ offensivePoints\r\n\ \ @return\ 0\r\n
+comment5.params=energyPoints\ defensivePoints
+comment5.target=double\ resistancePower(double,\ double)
+comment5.text=\r\n\ \ \r\n\ \ @param\ energyPoints\ A\ doulble\ from\ the\ energyPoints,\ defensivePoints\ A\ doulble\ from\ the\ defensivePoints\r\n\ \ @return\ 0\r\n
+numComments=6

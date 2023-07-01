@@ -1,0 +1,31 @@
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.SynchronousQueue;
+
+public class Plataforma {
+
+	private BlockingQueue<Contenedor> colaAzucar;	// 1
+	private BlockingQueue<Contenedor> colaHarina;	// 2
+	private BlockingQueue<Contenedor> colaSal;		// 3
+
+	public Plataforma() {
+
+		colaAzucar = new SynchronousQueue<Contenedor>();
+		colaHarina = new SynchronousQueue<Contenedor>();
+		colaSal = new SynchronousQueue<Contenedor>();
+
+	}
+
+	public void dejar(int contenedor) {
+		
+		if(contenedor == 1) {
+			System.out.println("El mercante deja un contenedor de Azucar");
+			colaAzucar.put(e);
+		}
+
+	}
+
+	public void coger(int idGrua, String tipoGrua) {
+
+	}
+}

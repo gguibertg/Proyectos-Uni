@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=OffensiveCharacter
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ OffensiveCharacter\ here.\r\n\ \r\n\ @author\ (Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia)\ \r\n\ @version\ (05/12/19)\r\n
+comment1.params=name\ wand
+comment1.target=OffensiveCharacter(java.lang.String,\ Wand)
+numComments=2

@@ -1,0 +1,12 @@
+
+public class Reponedor extends Thread {
+
+	public Reponedor() {
+		
+	}
+	
+	public void run() {
+		
+	}
+	
+}

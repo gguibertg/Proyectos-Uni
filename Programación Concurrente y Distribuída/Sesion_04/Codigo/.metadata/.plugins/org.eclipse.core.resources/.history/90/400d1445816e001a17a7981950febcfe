@@ -1,0 +1,15 @@
+
+public class Grua extends Thread{
+
+	private int tipo;  // 0 = Azucar   1 = sal   2 = harina 
+	private String producto;
+	private Plataforma plataforma;
+	
+	public Grua(int tipo, Plataforma plataforma) {
+		
+		this.tipo = tipo;
+		this.plataforma = plataforma;
+		
+	}
+	
+}

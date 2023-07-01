@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="D:\Users\gabri\UniActualizado\Segundo\19-20\Cuatri 2\PCD\Practicas\Sesion_05\Codigo\sem5Numeros"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\gabri\Downloads\Paso8y9.zip"/>
+			<item value="C:\Users\gabri\Downloads\Paso6.zip"/>
+			<item value="C:\Users\gabri\Downloads\Barcos_05.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171517Z-001\semReadersWriters.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171517Z-001\semProdCons.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171517Z-001\semPhilosophers.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171537Z-001\semSopa.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171537Z-001\semRobot6Patas.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171537Z-001\semNumerosIguales.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171537Z-001\semCannibals2.zip"/>
+			<item value="C:\Users\gabri\Downloads\drive-download-20200325T171537Z-001\sem5Numbers.zip"/>
+		</list>
+	</section>
+</section>

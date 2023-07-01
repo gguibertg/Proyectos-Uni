@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 6 elements to &apos;Barcos_06/src&apos;&#x0D;&#x0A;- Original project: &apos;Barcos_05&apos;&#x0D;&#x0A;- Destination element: &apos;Barcos_06/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Main.java&#x0D;&#x0A;     TorreDeControl.java&#x0D;&#x0A;     Barco.java&#x0D;&#x0A;     Grua.java&#x0D;&#x0A;     Plataforma.java&#x0D;&#x0A;     Puerta.java" description="Copy compilation units" destination="=Barcos_06/src" element1="/src&lt;{Main.java" element2="/src&lt;{TorreDeControl.java" element3="/src&lt;{Barco.java" element4="/src&lt;{Grua.java" element5="/src&lt;{Plataforma.java" element6="/src&lt;{Puerta.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1585157202477" units="6" version="1.0"/>
+</session>

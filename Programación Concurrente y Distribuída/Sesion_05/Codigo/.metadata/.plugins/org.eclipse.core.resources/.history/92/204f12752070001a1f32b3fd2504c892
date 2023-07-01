@@ -1,0 +1,160 @@
+/*
+ * Daniel Mateos Serrano
+ * Francisco Javier Melchor González
+ * Óscar Mogollón Gutiérrez
+ * Alejandro Redondo García
+ * 
+ * Proyecto Puerto Marítimo
+ */
+
+package Puerto;
+
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import ZonasCriticas.Puerta;
+import ZonasCriticas.ZonaCarga;
+import ZonasCriticas.ZonaDescarga;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Puerta puerta1 = new Puerta(1);
+		Control control = new Control(0, 0, 0);
+		ZonaDescarga zonaDescarga1 = new ZonaDescarga(null, 1);
+
+		// Barcos normales
+		// barcos que salen
+		Barco b1 = new Barco(1, 0, puerta1, control);
+		Barco b2 = new Barco(2, 0, puerta1, control);
+		Barco b3 = new Barco(3, 0, puerta1, control);
+		Barco b4 = new Barco(4, 0, puerta1, control);
+		Barco b5 = new Barco(5, 0, puerta1, control);
+		Barco b6 = new Barco(6, 0, puerta1, control);
+		Barco b7 = new Barco(7, 0, puerta1, control);
+		Barco b8 = new Barco(8, 0, puerta1, control);
+		Barco b9 = new Barco(9, 0, puerta1, control);
+		Barco b10 = new Barco(10, 0, puerta1, control);
+
+		// barcos que entran
+		Barco b11 = new Barco(11, 1, puerta1, control);
+		Barco b12 = new Barco(12, 1, puerta1, control);
+		Barco b13 = new Barco(13, 1, puerta1, control);
+		Barco b14 = new Barco(14, 1, puerta1, control);
+		Barco b15 = new Barco(15, 1, puerta1, control);
+		Barco b16 = new Barco(16, 1, puerta1, control);
+		Barco b17 = new Barco(17, 1, puerta1, control);
+		Barco b18 = new Barco(18, 1, puerta1, control);
+		Barco b19 = new Barco(19, 1, puerta1, control);
+		Barco b20 = new Barco(20, 1, puerta1, control);
+
+		// barco mercante
+		Queue<Contenedor> colaContenedores = new LinkedList<Contenedor>();
+
+		int A = 12; // azucar 12
+		// Contenedor contenedorAzucar = new Contenedor(1);
+
+		int H = 5; // Harina 5
+		// Contenedor contenedorHarina = new Contenedor(2);
+
+		int S = 20; // Sal 20
+		// Contenedor contenedorSal = new Contenedor(3);
+
+		// Llena la cola con los contenedores
+		
+		Random r = new Random();
+		int k = A + H + S;
+
+		while (k > 0) {
+			int container = r.nextInt(2);
+
+			switch (container) {
+			case 0:
+				if (A > 0) {
+					colaContenedores.add(new Contenedor(1));
+					A--;
+					k--;
+				}
+			case 1:
+				if (H > 0) {
+					colaContenedores.add(new Contenedor(2));
+					H--;
+					k--;
+				}
+			case 2:
+				if (S > 0) {
+					colaContenedores.add(new Contenedor(3));
+					S--;
+					k--;
+				}
+			}
+			
+		}
+
+		// Creamos el barco mercante
+		Barco bMercante = new Barco(99, 1, puerta1, control, 1, colaContenedores, zonaDescarga1);
+
+		// Gruas
+		Grua gAzucar = new Grua(1, zonaDescarga1, 12);
+		Grua gHarina = new Grua(2, zonaDescarga1, 5);
+		Grua gSal = new Grua(3, zonaDescarga1, 20);
+
+		ZonaCarga zC = new ZonaCarga();
+
+		Reponedor reponedor = new Reponedor(zC);
+
+		Barco bP1 = new Barco(21, 1, puerta1, control, 2, 0, 0, zC, 0);
+		Barco bP2 = new Barco(22, 1, puerta1, control, 2, 0, 0, zC, 1);
+		Barco bP3 = new Barco(23, 1, puerta1, control, 2, 0, 0, zC, 2);
+		Barco bP4 = new Barco(24, 1, puerta1, control, 2, 0, 0, zC, 3);
+		Barco bP5 = new Barco(25, 1, puerta1, control, 2, 0, 0, zC, 4);
+
+		// Run de los hilos
+		// Barcos normales salida
+		b1.start();
+		b2.start();
+		b3.start();
+		b4.start();
+		b5.start();
+		b6.start();
+		b7.start();
+		b8.start();
+		b9.start();
+		b10.start();
+
+		// Barco mercante
+		bMercante.start();
+
+		// Gruas
+		gAzucar.start();
+		gHarina.start();
+		gSal.start();
+
+		// Barcos normales salida
+		b11.start();
+		b12.start();
+		b13.start();
+		b14.start();
+		b15.start();
+		b16.start();
+		b17.start();
+		b18.start();
+		b19.start();
+		b20.start();
+
+		// Reponedor
+		reponedor.start();
+
+		// Barcos Petroleros
+		bP1.start();
+		bP2.start();
+		bP3.start();
+		bP4.start();
+		bP5.start();
+		
+
+	}
+
+}

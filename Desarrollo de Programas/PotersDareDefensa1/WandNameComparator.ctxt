@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=WandNameComparator
+comment0.text=\r\n\ Compare\ the\ string\ names\ of\ the\ wands\ alphabetically.\r\n\ \r\n\ @author\ (Rafael\ Canito\ Rubio,\ Carlos\ Garcia\ Garay,\ Gabriel\ Fernando\ Guiberteau\ Garcia)\ \r\n\ @version\ (05/12/19)\r\n
+comment1.params=w1\ w2
+comment1.target=int\ compare(Wand,\ Wand)
+numComments=2

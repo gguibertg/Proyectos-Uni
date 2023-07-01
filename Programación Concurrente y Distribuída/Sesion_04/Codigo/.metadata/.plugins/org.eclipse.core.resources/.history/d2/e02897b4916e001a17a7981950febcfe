@@ -1,0 +1,10 @@
+
+public class Contenedor {
+
+	private int contenido; // 1 = Azúcar 2 = Harina 3 = Sal
+	private String nombre;
+
+	public Contenedor(int contenido) {
+		this.contenido = contenido
+	}
+}

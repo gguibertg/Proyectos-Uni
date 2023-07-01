@@ -1,0 +1,48 @@
+
+import java.util.LinkedList;
+
+public class BarcoMercante extends Barco {
+
+	private Plataforma plataforma;
+	private LinkedList<Contenedor> contenedores;
+
+	public BarcoMercante(int direccion, int id, Puerta p, TorreDeControl torreDeControl, Plataforma plataforma, LinkedList<Contenedor> contenedores) {
+
+		super(direccion, id, p, torreDeControl);
+		this.plataforma = plataforma;
+
+	}
+
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public LinkedList<Contenedor> getContenedores() {
+		return contenedores;
+	}
+
+	public void setContenedores(LinkedList<Contenedor> contenedores) {
+		this.contenedores = contenedores;
+	}
+
+	public void run() {
+
+		this.getTorreDeControl().permisoEntrada(this);
+		this.getPuerta().entrar(this);
+		this.getTorreDeControl().finEntrada(this);
+
+		for(int i = 0; i < contenedores.size(); i++) {
+			
+		}
+		
+		this.getTorreDeControl().permisoSalida(this);
+		this.getPuerta().salir(this);
+		this.getTorreDeControl().finSalida(this);
+
+	}
+
+}
