@@ -1,0 +1,9 @@
+
+JOIN INTERNO --> INNER JOIN --> Concatenar las filas de dos tablas
+				USING (los atributos se llaman igual)
+				ON
+
+
+INNER JOIN = INTERSECT = JOIN INTERNO
+
+Los LEFT y los RIGHT JOIN aparecen con nulos

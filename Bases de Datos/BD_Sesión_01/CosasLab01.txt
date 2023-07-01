@@ -1,0 +1,3 @@
+Instancia = conjunto de procesos + memoria asignada
+
+Columna = atributo y fila = tupla

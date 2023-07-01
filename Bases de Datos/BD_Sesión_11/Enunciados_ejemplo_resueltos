@@ -1,0 +1,104 @@
+
+-- Para ver las restricciones creadas por el usuario
+
+SELECT *
+FROM user_constraints;
+
+-- Alter y Modify
+
+MODIFY se usa para   Tipo Atributo
+                    Default
+                    Tamaño
+                    NOT NULL
+
+ADD se usa para PRIMARY KEY
+                FOREIGN KEY
+                UNIQUE
+                CHECK
+
+-- Ejercicios de Ejemplo
+
+-- Ejercicio 1: Crear una tabla TIPO_RECETA con los atributos cod_tipo que tendrá un solo carácter y nombre_tipo que será una cadena de caracteres de longitud variable de hasta 30 caracteres. La clave primaria será cod_tipo y nombre_tipo es clave alternativa y siempre debe tener valor asignado.
+
+CREATE TABLE tipo_receta (
+                          cod_tipo CHAR(1) PRIMARY KEY,
+                          nom_tipo VARCHAR2(30) NOT NULL UNIQUE);
+                          
+-- Ejercicio 2: Añade a la tabla TIPO_RECETA las filas que existen en la tabla TIPO_RECETA del usuario practbd (se debe hacer con una sola sentencia)
+
+INSERT INTO tipo_receta
+SELECT *
+FROM practbd.tipo_receta;
+
+-- Ejercicio 3: Crea una tabla RECETA a partir de la tabla RECETA del usuario practbd, copiando definición y contenido. Consulta la tabla creada para ver su contenido y su descripción.
+
+CREATE TABLE receta
+AS SELECT * 
+   FROM practbd.receta;
+
+DESC receta;
+
+-- Ejercicio 4: Como con la creación anterior no se copian las restricciones, añade a tu tabla RECETA la clave primaria y también una clave externa formada por el atributo tipo_receta hacia la tabla TIPO_RECETA; la opción de borrado deberá ser restringido.
+
+ALTER TABLE receta
+ADD (PRIMARY KEY (cod_receta),
+     FOREIGN KEY (tipo_receta) REFERENCES tipo_receta(cod_tipo)); -- Como por defecto se pone B:R no hace falta poner nada más
+     
+-- Ejercicio 5: Borra de TIPO_RECETA la fila correspondiente al tipo ENTRANTE. ¿Se produce algún error? ¿A qué se debe?
+
+DELETE 
+FROM tipo_receta
+WHERE nom_tipo = 'ENTRANTE';
+
+-- Ejercicio 6: Crea una secuencia snum_receta para generar números de receta, que empiece en el número 20 y se incremente de 10 en 10; el máximo valor debe ser 99999.
+
+CREATE SEQUENCE snum_receta
+START WITH 20
+INCREMENT BY 1
+MAXVALUE 99999;
+
+-- Ejercicio 10: Añade una receta de tipo A que se llama CREMA DE BERBERECHOS. Si se produce un error, indica por qué.
+
+INSERT INTO receta
+      (cod_receta, nom_receta, tipo_receta)
+VALUES(snum_receta.nextval, 'CREMA DE BERBERECHOS', 'A');
+
+-- Ejercicio 11: Crea un índice en RECETA para optimizar el acceso por el nombre de la receta.
+
+CREATE INDEX romReceta_idx ON receta (nom_receta);
+
+-- Sintaxis básica de una vista
+
+CREATE VIEW nombreVista
+AS consulta;
+
+-- Ejercicio 12: Crea una vista sobre tu tabla de RECETA, que se llame RECETA_POSTRE que solo muestre el código, nombre y tipo de las recetas de postre. Realiza una consulta a la vista.
+
+CREATE VIEW receta_postre
+AS SELECT cod_receta, nom_receta, tipo_receta
+   FROM receta
+   WHERE tipo_receta = 'T';
+
+-- Ejercciio 13: Inserta a través de la vista RECETA_POSTRE una receta de entrante (tipo E) cuyo nombre es NACHOS CON GUACAMOLE.
+
+INSERT INTO receta_postre
+VALUES (snum_receta.nextval, 'NACHOS CON GUACAMOLE', 'E');
+
+CREATE OR REPLACE VIEW receta_postre
+AS SELECT cod_receta, nom_receta, tipo_receta
+   FROM receta
+   WHERE tipo_receta = 'T'
+   WITH CHECK OPTION;
+
+
+
+
+
+
+
+
+
+
+
+
+
